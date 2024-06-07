@@ -1,0 +1,71 @@
+:root{
+    --orange:#03b252;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:2rem solid rgba(0,0,0,.1);
+    --outline:1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid var(--black);
+
+}
+
+.categories-container {
+    text-align: center;
+}
+
+.categories-banner{
+    width: 100%;
+    height: 350px;
+    background-image: url('./images/supermarket-grocery-store-interior-flat-illustration-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.3)
+}
+
+.categories-banner h2{
+    padding-top: 40px;
+}
+
+.categories-container h2 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.categories-container h3 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.categories-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+.categories-select{
+    font-size: 1.4rem;
+    background-color: #f9f9f9;
+}
+
+
+.categories-buttons .product-button {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 10px; 
+}
+
+.categories-buttons .product-button:hover {
+    background-color: var(--black); 
+}
+

@@ -1,0 +1,74 @@
+:root{
+    --orange:#03b252;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:2rem solid rgba(0,0,0,.1);
+    --outline:1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid var(--black);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+.sell-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.sell-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.sell-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sell-form label {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.sell-form input[type="text"],
+.sell-form input[type="number"],
+.sell-form input[type="file"],
+.sell-form select[type="text"],
+.sell-form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sell-form button {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+    font-size: 20px;
+}
+
+.sell-form button:hover {
+    background-color: var(--black);
+}

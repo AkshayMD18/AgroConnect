@@ -1,0 +1,62 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.login-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.login-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.login-form .btn-login, .login-form .btn-register {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+}
+
+.login-form .btn-login:hover, .login-form .btn-register:hover {
+    background-color: var(--black);
+}

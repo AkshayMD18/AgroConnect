@@ -1,0 +1,77 @@
+:root{
+    --orange:#03b252;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:2rem solid rgba(0,0,0,.1);
+    --outline:1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid var(--black);
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.register-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.register-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.register-form .form-group input,
+.register-form .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.register-form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.register-form .btn-register, .register-form .btn-login {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none; 
+}
+
+.register-form .btn-register:hover, .register-form .btn-login:hover {
+    background-color: var(--black);
+}

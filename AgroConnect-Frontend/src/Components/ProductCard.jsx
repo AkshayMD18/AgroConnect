@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
         <div className="product-details">
             <h3>{product.name}</h3>
             <p>Price: ₹{product.price}</p>
-            <p>Quantity: {product.quantity}</p>
+            <p>Quantity: {product.quantity}kg</p>
             <p>Category: {product.category}</p>
             {isSoldOut ? (
                 <p className='products-select-sold-out'>Sold Out</p>

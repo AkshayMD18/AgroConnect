@@ -46,7 +46,7 @@ const CategoriesCard = ({ categories }) => {
         <div className="categories-details">
             <h3>{categories.name}</h3>
             <p>Price: ₹{categories.price}</p>
-            <p>Quantity: {categories.quantity}</p>
+            <p>Quantity: {categories.quantity}kg</p>
             <p>Category: {categories.category}</p>
             {isSoldOut ? (
                 <p className='categories-select-sold-out'>Sold Out</p>

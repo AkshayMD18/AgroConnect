@@ -34,6 +34,7 @@ const CategoriesCard = ({ categories }) => {
         await axios.post("http://localhost:5000/cart", data)
             .then(() => {
                 console.log('Data sent successfully:', data);
+                alert('Items Added to Cart');
             })
             .catch((err) => {
                 console.error('Error sending data to cart:', err);

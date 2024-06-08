@@ -54,7 +54,7 @@ const Cart = () => {
                         <div key={item._id} className="cart-item">
                             <div className="item-details">
                                 <h3>{item.name}</h3>
-                                <p>Quantity: {item.quantity}</p>
+                                <p>Quantity: {item.quantity}kg</p>
                                 <p>Price: ₹{item.price}</p>
                             </div>
                             <button onClick={() => handleDelete(item._id)} className="delete-button">Delete</button>

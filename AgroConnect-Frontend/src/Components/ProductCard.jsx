@@ -33,6 +33,7 @@ const ProductCard = ({ product }) => {
         };
         await axios.post("http://localhost:5000/cart", data)
             .then(() => {
+                alert('Items Added to Cart');
                 console.log(data);
             })
             .catch((err) => {

@@ -10,7 +10,13 @@ loginRouter.post('/', async (req, res) => {
     try {
         const user = await userSchema.findOne({ username, password});
         if (user) {
-            res.status(200).send({ message: 'Login successful' });
+            res.status(200).send({ 
+                message: 'Login successful',
+                user: {
+                    name: user.username,
+                    role: user.role
+                }
+            });        
         } else {
             res.status(400).send({ message: 'Invalid credentials' });
         }

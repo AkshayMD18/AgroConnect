@@ -1,23 +1,23 @@
 import "./style/Login.css"
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from "./AuthContext";
 
 function Login(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { signIn } = useContext(AuthContext);
     const navigateTo = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/login', {
-                username,
-                password
-            });
+            const response = await axios.post('http://localhost:5000/login', { username, password });
             if (response.status === 200) {
-                alert('Login successful');
+                signIn(response.data.user);
+                alert("Login Successful")
                 navigateTo('/');
             }
         } catch (error) {

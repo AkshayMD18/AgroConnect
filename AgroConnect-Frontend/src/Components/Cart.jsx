@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from './AuthContext';
 import './style/Cart.css'
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
+    const { auth } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchCartItems = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/cart');
-                setCartItems(response.data);
-            } catch (error) {
-                console.error('Error fetching cart items:', error);
+            if(auth){
+                try {
+                    const response = await axios.get('http://localhost:5000/cart', {
+                        params: { userId: auth.userId }
+                    });
+                    setCartItems(response.data);
+                } catch (error) {
+                    console.error('Error fetching cart items:', error);
+                }
             }
         };
 
         fetchCartItems();
-    }, []);
+    }, [auth]);
 
     const handleDelete = async (id) => {
         try {
@@ -30,13 +36,17 @@ const Cart = () => {
     const handleCheckout = async () => {
         try {
             for (let item of cartItems) {
-                const response = await axios.get(`http://localhost:5000/products/${item.productId}`);
-                const product = response.data;
+                if(item.userId == auth.userId){
+                    const response = await axios.get(`http://localhost:5000/products/${item.productId}`);
+                    const product = response.data;
 
-                const newQuantity = product.quantity - item.quantity;
-                await axios.patch(`http://localhost:5000/products/${item.productId}`, { quantity: newQuantity });
+                    const newQuantity = product.quantity - item.quantity;
+                    await axios.patch(`http://localhost:5000/products/${item.productId}`, { quantity: newQuantity });
+                }
             }
-            await axios.delete('http://localhost:5000/cart');
+            await axios.delete('http://localhost:5000/cart', {
+                params: {userId: auth.userId}
+            });
             setCartItems([]);
             alert('Items bought');
         } catch (error) {

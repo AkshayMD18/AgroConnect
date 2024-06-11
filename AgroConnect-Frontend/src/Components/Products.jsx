@@ -9,7 +9,7 @@ const Products = () => {
         <>
             <div className="products-container">
                 <div className='products-img'>
-                    <h2>Our Products</h2>
+                    <h2>Your Products</h2>
                 </div>
                 <ProductList />
                 <div className="products-buttons">

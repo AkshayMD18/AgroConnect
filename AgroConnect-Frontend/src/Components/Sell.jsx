@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./style/Sell.css"
 import axios from 'axios';
+import { AuthContext } from './AuthContext';
 
 const Sell = () => {
     const [name, setName] = useState('');
@@ -8,6 +9,7 @@ const Sell = () => {
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('null');
     const [category, setCategory] = useState('');
+    const { auth } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +19,7 @@ const Sell = () => {
         formData.append('price', price);
         formData.append('category', category);
         formData.append('image', image);
+        formData.append('userId', auth.userId);
 
         try {
             const response = await axios.post('http://localhost:5000/sell', formData, {

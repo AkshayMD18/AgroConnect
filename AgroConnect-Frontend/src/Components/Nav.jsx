@@ -9,21 +9,21 @@ function Nav() {
 
     const handleSignOut = () => {
         signOut();
-        navigateTo('/login');
+        navigateTo('/');
     };
 
     return (
         <>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
             <nav className="navbar">
                 <div className="nav-links">
                     <Link to="/">Home</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/categories">Categories</Link>
+                    {auth?.role === 'farmer' && <Link to="/products">Products</Link>}
+                    {auth?.role === 'consumer' && <Link to="/categories">Categories</Link>}
                 </div>
-                <div class="nav-icons">
+                <div className="nav-icons">
                     <div className="nav-shopping-cart">
-                        <Link to="/cart" i className="fa-solid fa-cart-shopping"/>
+                        <Link to="/cart" className="fa-solid fa-cart-shopping" />
                     </div>
                     {auth ? (
                         <>
@@ -31,7 +31,7 @@ function Nav() {
                                 <Link to="/profile" className="fa-solid fa-user"></Link>
                             </div>
                             <div className="nav-signout">
-                                <Link onClick={handleSignOut} class="fa-solid fa-right-from-bracket"></Link>
+                                <Link onClick={handleSignOut} className="fa-solid fa-right-from-bracket"></Link>
                             </div>
                         </>
                     ) : (

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from './AuthContext';
 
 const CategoriesCard = ({ categories }) => {
     const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [image, setImage] = useState("");
     const [isSoldOut, setIsSoldOut] = useState(false);
+    const { auth } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchImage = async () => {
@@ -29,7 +31,8 @@ const CategoriesCard = ({ categories }) => {
             name: categories.name,
             productId: categories._id,
             quantity: selectedQuantity,
-            price: categories.price
+            price: categories.price,
+            userId: auth.userId
         };
         await axios.post("http://localhost:5000/cart", data)
             .then(() => {

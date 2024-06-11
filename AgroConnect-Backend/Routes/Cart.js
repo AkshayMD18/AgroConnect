@@ -16,7 +16,8 @@ cartRouter.post('/', async (req, res) => {
 
 cartRouter.get('/', async (req, res) => {
     try {
-        const cartItems = await cartSchema.find({});
+        const { userId } = req.query;
+        const cartItems = await cartSchema.find({ userId });
         res.status(200).json(cartItems);
     } catch (error) {
         console.error('Error fetching cart items:', error.message, error.stack);
@@ -37,7 +38,8 @@ cartRouter.delete('/:id', async (req, res) => {
 
 cartRouter.delete('/', async (req, res) => {
     try {
-        await cartSchema.deleteMany({});
+        const { userId } = req.query;
+        await cartSchema.deleteMany({ userId });
         res.status(200).send('All items deleted from cart');
     } catch (error) {
         console.error('Error during checkout:', error.message, error.stack);

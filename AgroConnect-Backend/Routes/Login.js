@@ -13,6 +13,7 @@ loginRouter.post('/', async (req, res) => {
             res.status(200).send({ 
                 message: 'Login successful',
                 user: {
+                    userId: user._id,
                     name: user.username,
                     role: user.role
                 }

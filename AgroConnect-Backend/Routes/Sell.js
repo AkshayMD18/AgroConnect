@@ -17,14 +17,20 @@ const upload = multer({ storage: storage });
 
 sellRouter.post('/', upload.single('image'), async (req, res) => {
     try {
-        const { name, quantity, price, category } = req.body;
+        const { name, quantity, price, category, userId } = req.body;
+
+        if (!userId) {
+            return res.status(400).json({ message: 'User ID is required' });
+        }
+        
         const image = req.file ? `/uploads/${req.file.filename}` : null;
         const sellItem = new Sell({
             name,
             quantity,
             price,
             category,
-            image
+            image,
+            userId
         });
 
         await sellItem.save();
